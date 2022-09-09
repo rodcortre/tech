@@ -1,5 +1,8 @@
+import { Router } from "./router";
+import "normalize.css";
+
 function App() {
-  return <div className="App"></div>;
+  return <Router></Router>;
 }
 
 export default App;
