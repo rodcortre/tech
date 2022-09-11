@@ -1,0 +1,67 @@
+[{
+    "type":"email",
+    "name":"email",
+    "placeholder":"Email",
+    "value":"",
+    "labelstyles":"text-lg",
+    "errormessagestyles":"text-red-500",
+    "validations":[
+        {
+            "type":"required"
+        },
+        {
+            "type":"email"
+        },
+        {
+            "type":"minLength",
+            "value":6
+        },
+        {
+            "type":"maxLength",
+            "value":30
+        }
+    ]
+},
+{
+    "type":"password",
+    "name":"password",
+    "placeholder":"Password",
+    "labelstyles":"text-lg",
+    "errormessagestyles":"text-red-500",
+    "value":"",
+    "validations":[
+        {
+            "type":"required"
+        },
+        {
+            "type":"minLength",
+            "value":6
+        },
+        {
+            "type":"maxLength",
+            "value":14
+        }
+    ]
+},
+{
+    "type":"password",
+    "name":"confirmpassword",
+    "placeholder":"Confirm Password",
+    "labelstyles":"text-lg",
+    "errormessagestyles":"text-red-500",
+    "value":"",
+    "validations":[
+        {
+            "type":"required"
+        },
+        {
+            "type":"minLength",
+            "value":6
+        },
+        {
+            "type":"maxLength",
+            "value":14
+        }
+    ]
+}
+]
