@@ -1,28 +1,22 @@
-import { Suspense } from "react";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import { routes } from "./routes";
+import { useState } from "react";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { RoutesAuth } from "./RoutesAuth";
+import { RoutesNoAuth } from "./RoutesNoAuth";
 
 const Router = () => {
-  return (
-    <Suspense fallback={<></>}>
-      <BrowserRouter>
-        <Routes>
-          {routes.map((route) => (
-            <Route
-              key={route.to}
-              path={route.path}
-              element={<route.Component></route.Component>}
-            ></Route>
-          ))}
+  const [isWithSession, setIsWithSession] = useState(false);
+  const { token } = useSelector((state: any) => state.user);
+  useEffect(() => {
+    if (!token) {
+      setIsWithSession(false);
+    } else {
+      setIsWithSession(true);
+    }
+  }, [token]);
 
-          <Route
-            path="/*"
-            element={<Navigate to={routes[0].to} replace></Navigate>}
-          ></Route>
-        </Routes>
-      </BrowserRouter>
-    </Suspense>
-  );
+  if (!isWithSession) return <RoutesNoAuth />;
+  return <RoutesAuth></RoutesAuth>;
 };
 export default Router;
 
