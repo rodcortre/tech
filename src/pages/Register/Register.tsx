@@ -1,13 +1,13 @@
 import useWindowSize from "@/hooks/Window/useWindowsSize";
 import { useEffect, useState } from "react";
-import { Form, FormContainer } from "./components";
-
+import { FormContainer } from "../Login/components";
 import {
   BackgroundContainerStyled,
   FormContainerStyled,
-} from "./styled-components";
+} from "../Login/styled-components";
+import { FormRegister } from "./components/Form";
 
-const Login = () => {
+const Register = () => {
   const windowsSize = useWindowSize();
   const [dynamicHeight, setDynamicHeight] = useState("0px");
 
@@ -21,12 +21,12 @@ const Login = () => {
     <BackgroundContainerStyled heigth={dynamicHeight}>
       <FormContainerStyled>
         <FormContainer>
-          <FormContainer.Title title="Sign In" />
-          <FormContainer.Description description="login to view user application" />
-          <FormContainer.Form form={<Form />} />
+          <FormContainer.Title title="Register new account" />
+          <FormContainer.Description description="Register new account with email and password" />
+          <FormContainer.Form form={<FormRegister />} />
           <FormContainer.Link
-            to="/Register"
-            description="Click to register
+            to="/Login"
+            description="Back
 "
           />
         </FormContainer>
@@ -35,4 +35,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
