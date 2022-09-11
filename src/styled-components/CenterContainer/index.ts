@@ -1,0 +1,1 @@
+export * from './center-container.styled.component'
